@@ -3,6 +3,7 @@ package ee.model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class UsersBase {
 
@@ -17,6 +18,13 @@ public class UsersBase {
 
     public List<User> getUsers() {
         return users;
+    }
+
+    public User getUserById(int id) {
+        Optional<User> user = users.stream().filter(s -> s.getId() == id).findFirst();
+        if (user.isPresent()) {
+            return user.get();
+        } else throw new IllegalArgumentException("No users with such id");
     }
 
 }
