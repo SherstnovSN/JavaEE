@@ -1,12 +1,27 @@
 package ee.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "user")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private int id;
+
+    @Column
     private String name;
 
-    public User(int id, String name) {
-        this.id = id;
+    public User() {}
+
+    public User(String name) {
         this.name = name;
     }
 
