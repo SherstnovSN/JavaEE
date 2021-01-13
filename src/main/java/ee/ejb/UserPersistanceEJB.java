@@ -18,6 +18,10 @@ public class UserPersistanceEJB {
         return entityManager.createQuery("select entity from User entity").getResultList();
     }
 
+    public User getUserById(int id) {
+        return entityManager.find(User.class, id);
+    }
+
     public void addUser(User user) {
         entityManager.persist(user);
     }
