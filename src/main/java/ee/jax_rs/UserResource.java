@@ -1,6 +1,6 @@
 package ee.jax_rs;
 
-import ee.ejb.UserPersistanceEJB;
+import ee.ejb.UserPersistenceEJB;
 import ee.model.User;
 import ee.validation.ValidUser;
 
@@ -21,24 +21,24 @@ import java.util.List;
 public class UserResource {
 
     @EJB
-    private UserPersistanceEJB userPersistance;
+    private UserPersistenceEJB userPersistence;
 
     @GET
     public List<User> getUsers() {
-        return userPersistance.getUsers();
+        return userPersistence.getUsers();
     }
 
     @GET
     @Path("{id}")
     public User getUserById(@PathParam("id") int id) {
-        return userPersistance.getUserById(id);
+        return userPersistence.getUserById(id);
     }
 
     @POST
     @Path("add")
     public void addUser(@ValidUser JsonObject json) {
         String name = json.getString("name");
-        userPersistance.addUser(new User(name));
+        userPersistence.addUser(new User(name));
     }
 
 }

@@ -1,6 +1,6 @@
 package ee.cdi;
 
-import ee.ejb.UserPersistanceEJB;
+import ee.ejb.UserPersistenceEJB;
 import ee.model.User;
 
 import javax.ejb.EJB;
@@ -12,7 +12,7 @@ import javax.inject.Named;
 public class UserAddition {
 
     @EJB
-    private UserPersistanceEJB userPersistance;
+    private UserPersistenceEJB userPersistence;
 
     private String name;
 
@@ -25,7 +25,7 @@ public class UserAddition {
     }
 
     public void addUser() {
-        userPersistance.addUser(new User(name));
+        userPersistence.addUser(new User(name));
     }
 
 }

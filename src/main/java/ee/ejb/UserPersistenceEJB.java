@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Stateless
-public class UserPersistanceEJB {
+public class UserPersistenceEJB {
 
     @PersistenceContext(unitName = "javaee_datasource")
     private EntityManager entityManager;
